@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,20 +18,12 @@ Route::get('/', function () {
     return view('homepage/index');
 });
 
+
+// Find an article by its slug and pass it to a view called 'article'
 Route::get('articles/{article}', function ($slug) {
-    
-    // Find article path (will turn into db probably)
-    $article_path = __DIR__ . "/../resources/articles/{$slug}/{$slug}.html";
-    
-    // If article doesn't exist return 404 page
-    if (! file_exists($article_path)) {
-        return redirect ('404');
-    }
 
-    // Retrieve article content
-    $article_content = file_get_contents($article_path);
-
-    // Pass article content into view
+    $article_content = Article::find($slug);
+    
     return view('article/article', [
         'article_content' => $article_content
     ]);
