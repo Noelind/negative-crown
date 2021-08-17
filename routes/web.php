@@ -19,8 +19,16 @@ Route::get('/', function () {
 
 Route::get('articles/{article}', function ($slug) {
     
-    // Find articles content
-    $article_content = file_get_contents(__DIR__ . "/../resources/articles/{$slug}/{$slug}.html");
+    // Find article path (will turn into db probably)
+    $article_path = __DIR__ . "/../resources/articles/{$slug}/{$slug}.html";
+    
+    // If article doesn't exist return 404 page
+    if (! file_exists($article_path)) {
+        return redirect ('404');
+    }
+
+    // Retrieve article content
+    $article_content = file_get_contents($article_path);
 
     // Pass article content into view
     return view('article/article', [
