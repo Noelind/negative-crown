@@ -3,9 +3,9 @@
 @include('layouts/head');
 
 <body>
-@include('layouts.master-layout')
-@include('homepage/new-articles')
-
+@include('layouts.header')
+@include('homepage.new-articles')
+<script src="/js/main.js"></script>
 </body>
 
 </html>

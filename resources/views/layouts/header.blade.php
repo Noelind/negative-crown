@@ -45,5 +45,12 @@
         <a href="#">
             <li class="shadow-fx-txt">Press Stories</li>
         </a>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <span class="theme-text"></span>
+              <div class="theme-icon"></div>
+          </label>
+      </div>
     </ul>
 </nav>

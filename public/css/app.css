@@ -1,13 +1,19 @@
 :root {
-    --li-main-color: white;
-    --dk-main-color: black;
-
-    --light-grey: rgb(221, 221, 221);
+    --bg-color: white;
+    --font-color: black;
+    --theme-icon: url(../images/icons/moon.svg);
     --transition-fast: 0.2s;
     --transition-mid: 0.7s;
     --transition-slow: 2s;
+}
+
+[data-theme="dark"] {
+    --bg-color: #090909;
+    --font-color: white;
+    --theme-icon: url(../images/icons/sun.svg);
 
 }
+
 
 .dark {
     background: #222;
@@ -17,6 +23,7 @@
 * {
     font-family: 'Manrope', sans-serif;
     letter-spacing: 2px;
+    color:var(--font-color);
 }
 
 html {
@@ -29,18 +36,19 @@ html {
 body {
     min-height: 100%;
     margin: 0;
+    background-color: var(--bg-color);
 
 }
 
 /* HEADER */
 
 .header {
-    border-bottom: 0.1rem solid var(--light-grey);
+    border-bottom: 0.1rem solid rgb(221,221,221);
     position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
-    background: white;
+    background-color: var(--bg-color);
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -89,7 +97,7 @@ body {
 /* NAVIGATION  */
 
 .main-navigation {
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: 1px solid rgb(221,221,221);
     position: fixed;
     top: 50%;
     left: 0;
@@ -97,7 +105,7 @@ body {
     transform: translate(-50%) rotate(-90deg);
     transform-origin: top center;
     width: 100vh;
-    background: white;
+    background-color: var(--bg-color);
 }
 
 .main-navigation ul {
@@ -175,7 +183,7 @@ main {
 }
 
 .background-label {
-    opacity: 0.04;
+    opacity: 0.02;
     top: 40vh;
     position: fixed;
     width: 100%;
@@ -196,8 +204,27 @@ main {
     transition: var(--transition-fast);
 }
 
-.shadow-fx-txt:hover {
-    text-shadow: 5px 4px 0 rgba(238, 42, 91, 0.5);
+.txt-fx {
+    position:relative;
+}
+
+.txt-fx::after {
+    position:absolute;
+    right:-1rem;
+    top:0;
+    border-left:2px solid black;
+    content:'';
+    height:0;
+    transition: var(--transition-mid);    
+}
+
+.txt-fx:hover::after {
+    height:4.5rem;
+}
+
+.blog-posts-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .scale-fx-svg:hover {
