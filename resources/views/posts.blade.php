@@ -8,7 +8,7 @@
         @if ($posts->count())
             <x-posts-grid :posts="$posts" />      
         @else
-            <p class="text-center">Testing new Commit! Check back later for new posts!</p>
+            <p class="text-center">Check back later for new posts!</p>
         @endif
 
     </main>
