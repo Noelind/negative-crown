@@ -1,7 +1,8 @@
 {{-- Passing $post variable from web.php --}}
 
-@extends('layout')
-@section('content')
+@props(['post'])
+{{-- @extends('layout')
+@section('content') --}}
 <article>
     <h1>{{ $post->title }}</h1>
     <div>{!! $post->body !!}</div>
@@ -10,4 +11,4 @@
     </p>
 </article>
 <a href="/">Go Back</a>
-@endsection
+{{-- @endsection --}}
