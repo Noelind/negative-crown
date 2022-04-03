@@ -1,5 +1,5 @@
 {{-- Passing $posts array (populated from Post model which grabs data from 'posts' table in DB) from web.php --}}
-
+{{-- Test commit from new Ubuntu Install --}}
 <x-layout>
     @include ('_posts-header')
 
