@@ -22,10 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     return view('posts', [
-        'posts' => Post::latest()->with('author','category')->get()
+        'posts' => Post::latest()->with('author','category')->get(),
+        'categories' => Category::all()
     ]);
 
-});
+})->name('home');
+// name('something') is for internal use, is not part of the URI itself
 
 // Post Route
 Route::get('posts/{post:slug}', function (Post $post) { // post:slug looks for slug column in db
@@ -38,15 +40,18 @@ Route::get('posts/{post:slug}', function (Post $post) { // post:slug looks for s
 
 
 Route::get('categories/{category:slug}', function (Category $category) {
-        // Return posts view as category page and use all() function to bring all posts associated with category
+        
         return view('posts', [
-            'posts' => $category->posts->load(['category','author'])
+            'posts' => $category->posts->load(['category','author']),
+            'currentCategory' => $category,
+            'categories' => Category::all()
         ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
-        // Return posts view as category page and use all() function to bring all posts associated with category
+        
         return view('posts', [
-            'posts' => $author->posts->load(['category','author'])
+            'posts' => $author->posts->load(['category','author']),
+            'categories' => Category::all()
         ]);
 });
