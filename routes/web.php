@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Post;
@@ -19,28 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 
 // Homepage Route
-Route::get('/', function () {
-
-    return view('posts', [
-        'posts' => Post::latest()->with('author','category')->get(),
-        'categories' => Category::all()
-    ]);
-
-})->name('home');
-// name('something') is for internal use, is not part of the URI itself
+Route::get('/', [PostController::class, 'index'])->name('home'); // name('something') is for internal use, is not part of the URI itself
 
 // Post Route
-Route::get('posts/{post:slug}', function (Post $post) { // post:slug looks for slug column in db
-
-    return view('post', [
-        'post'=> $post
-    ]);
-    
-});
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 
 Route::get('categories/{category:slug}', function (Category $category) {
-        
+
         return view('posts', [
             'posts' => $category->posts->load(['category','author']),
             'currentCategory' => $category,
@@ -49,7 +36,7 @@ Route::get('categories/{category:slug}', function (Category $category) {
 });
 
 Route::get('authors/{author:username}', function (User $author) {
-        
+
         return view('posts', [
             'posts' => $author->posts->load(['category','author']),
             'categories' => Category::all()
