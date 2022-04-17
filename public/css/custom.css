@@ -1,0 +1,7 @@
+body .test {
+  color: red;
+  transition: 4s;
+}
+body .test .inner-test {
+  transition: 5s;
+}

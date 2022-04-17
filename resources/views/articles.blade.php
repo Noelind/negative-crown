@@ -1,11 +1,12 @@
 <x-layout>
 
-    <x-article.featured-article/>
+    <x-article.featured-article />
+    <div class="flex flex-row">
+        @for($i = 0; $i < 6; $i++)
 
-    @for ($i = 0; $i < 6; $i++)
+            <x-article.simple-article :number="$i" /><br>
 
-        <x-article.simple-article :number="$i"/><br>
-
-    @endfor
+        @endfor
+    </div>
 
 </x-layout>
