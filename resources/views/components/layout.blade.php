@@ -2,11 +2,13 @@
 <html lang="en">
 
 <x-layout.head />
-    <body test="1">
+    <body>
 
         <x-layout.header />
 
-        {{ $slot }}
+        <div class="container mx-auto my-32">
+            {{$slot}}
+        </div>
 
         <x-layout.footer />
     </body>
