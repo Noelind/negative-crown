@@ -34,8 +34,11 @@ module.exports = {
             '2.5xl':'1.8rem',
         },
         lineHeight:{
+            '11': '3rem',
+            '12': '3.5rem',
             '40': '4rem',
         }
+
     },
   },
   plugins: [],

@@ -35,6 +35,14 @@ html {
   pointer-events: none;
 }
 
-.test-class {
-  color: white;
+.vertical-line {
+  position: relative;
+}
+.vertical-line::before {
+  width: 1px;
+  height: 30px;
+  position: absolute;
+  content: "";
+  background-color: #D8D8D8;
+  transform: translateY(-25%);
 }
