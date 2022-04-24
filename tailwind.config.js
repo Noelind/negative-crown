@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './storage/framework/views/*.php',
@@ -36,10 +38,23 @@ module.exports = {
         lineHeight:{
             '11': '3rem',
             '12': '3.5rem',
+            '13': '4rem',
             '40': '4rem',
-        }
+        },
+        lineClamp: {
+            7: '7',
+            8: '8',
+            9: '9',
+            10: '10',
+          }
 
     },
+    screens: {
+        'xsm': '400px',
+        ...defaultTheme.screens,
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

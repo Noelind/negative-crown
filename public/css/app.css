@@ -427,6 +427,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .container {
   width: 100%;
 }
+@media (min-width: 400px) {
+
+  .container {
+    max-width: 400px;
+  }
+}
 @media (min-width: 640px) {
 
   .container {
@@ -485,10 +491,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
   margin-right: auto;
 }
-.my-32 {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
-}
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -524,9 +526,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -535,6 +534,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .-ml-px {
   margin-left: -1px;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 .mb-8 {
   margin-bottom: 2rem;
@@ -553,12 +555,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .hidden {
   display: none;
-}
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
-.aspect-3\/2 {
-  aspect-ratio: 3 / 2;
 }
 .h-5 {
   height: 1.25rem;
@@ -584,8 +580,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto {
   width: auto;
 }
-.w-64 {
-  width: 16rem;
+.w-10 {
+  width: 2.5rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -593,14 +589,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-6xl {
   max-width: 72rem;
 }
+.max-w-\[350px\] {
+  max-width: 350px;
+}
 .flex-1 {
   flex: 1 1 0%;
-}
-.flex-initial {
-  flex: 0 1 auto;
-}
-.grow-0 {
-  flex-grow: 0;
 }
 .origin-top-center {
   transform-origin: top center;
@@ -622,9 +615,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -656,14 +646,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-20 {
   gap: 5rem;
 }
-.gap-80 {
-  gap: 20rem;
-}
-.gap-28 {
-  gap: 7rem;
-}
 .gap-10 {
   gap: 2.5rem;
+}
+.gap-32 {
+  gap: 8rem;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -774,21 +761,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .text-2\.5xl {
   font-size: 1.8rem;
@@ -799,11 +774,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-medium {
   font-weight: 500;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-normal {
   font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
 }
 .font-light {
   font-weight: 300;
@@ -813,9 +788,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .leading-7 {
   line-height: 1.75rem;
-}
-.leading-12 {
-  line-height: 3.5rem;
 }
 .leading-11 {
   line-height: 3rem;
@@ -863,6 +835,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -978,6 +954,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(156 163 175 / var(--tw-text-opacity));
   }
 }
+@media (min-width: 400px) {
+
+  .xsm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (min-width: 640px) {
 
   .sm\:ml-0 {
@@ -1000,8 +982,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 5rem;
   }
 
+  .sm\:w-5 {
+    width: 1.25rem;
+  }
+
   .sm\:flex-1 {
     flex: 1 1 0%;
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .sm\:items-center {
@@ -1039,6 +1029,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 768px) {
 
+  .md\:ml-\[86px\] {
+    margin-left: 86px;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1055,16 +1049,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .md\:flex-row {
-    flex-direction: row;
+  .md\:items-center {
+    align-items: center;
   }
 
   .md\:justify-center {
     justify-content: center;
-  }
-
-  .md\:gap-28 {
-    gap: 7rem;
   }
 
   .md\:border-t-0 {
@@ -1075,9 +1065,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-left-width: 1px;
   }
 
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .md\:leading-13 {
+    line-height: 4rem;
   }
 
   .md\:tracking-widest-plus {
@@ -1086,9 +1075,55 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 1024px) {
 
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .lg\:mb-12 {
+    margin-bottom: 3rem;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:gap-28 {
+    gap: 7rem;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:line-clamp-8 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
   }
 }
 
