@@ -6,11 +6,11 @@
 
         <x-layout.header />
 
-        <div class="container mx-auto my-32">
+        <div id="body" class="container mx-auto py-8 px-8">
             {{$slot}}
         </div>
 
-        <x-layout.footer />
+        {{-- <x-layout.footer /> --}}
     </body>
 </html>
 
