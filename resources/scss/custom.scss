@@ -97,30 +97,6 @@ html {
     }
 }
 
-.article-bg-image {
-    &::before {
-        content: "";
-        position: absolute;
-        width: 1834px;
-        height: 250px;
-        z-index: -2;
-        background-image: var(--article-bg-image);
-        left: 86px;
-        top: 65px;
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        width: 1834px;
-        height: 250px;
-        z-index: -1;
-        background:hsla(0, 0, 100, 0.5);
-        left: 86px;
-        top: 65px;
-    }
-}
-
-
 // Predeterminded Article Body styles
 // .markdown {
 //     @apply text-lg text-grey-darkest leading-normal;

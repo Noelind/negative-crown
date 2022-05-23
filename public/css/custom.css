@@ -76,27 +76,6 @@ html {
   transform: translateY(-25%);
 }
 
-.article-bg-image::before {
-  content: "";
-  position: absolute;
-  width: 1834px;
-  height: 250px;
-  z-index: -2;
-  background-image: var(--article-bg-image);
-  left: 86px;
-  top: 65px;
-}
-.article-bg-image::after {
-  content: "";
-  position: absolute;
-  width: 1834px;
-  height: 250px;
-  z-index: -1;
-  background: hsla(0deg, 0%, 100%, 0.5);
-  left: 86px;
-  top: 65px;
-}
-
 .dark .article-img-shadow {
   box-shadow: 0px 0px 15px rgb(113, 29, 60);
 }

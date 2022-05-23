@@ -20,7 +20,7 @@
             <span class="text-xl lg:text-xl font-normal font-color text-neutral-600 font-serif dark:text-neutral-400 transition ease-in-out duration-500">Published <strong>3 hours ago</strong></span>
             <span class="block lg:hidden vertical-line"></span>
             <div class="flex flex-row justify-between gap-10">
-                <a href="category" class="text-xl lg:text-xl font-bold md:tracking-widest-plus text-neutral-600 dark:text-neutral-400 font-serif transition ease-in-out duration-500">crown thoughts</a>
+                <x-article.category />
             </div>
         </div>
         <p class="hidden text-2xl font-light leading-11.5 obscure-text relative lg:line-clamp-10 dark:text-white transition ease-in-out duration-500">Τα παιδιά τις τελευταίες δεκαετίες έχουν γίνει ένα τοτέμ στην κοινωνία μας και στις λοιπές δυτικές κοινωνίες: σε μια «προοδευτική» οπτική γωνία της εξέλιξής μας, τα παιδιά ως μέλλον σηματοδοτούν μια αυταξία. Ειδικά όταν είναι κάπως λίγα και επενδύουμε (ψυχικά και οικονομικά) πολλά σε αυτά. Δεν είναι επίσης απολύτως σίγουρο ότι οι αντιδράσεις στην αστυνομική επέμβαση στο Τζόκερ είναι αντιπροσωπευτικές της κοινωνικής αντίληψης. Τα παιδιά τις τελευταίες δεκαετίες έχουν γίνει ένα τοτέμ στην κοινωνία μας και στις λοιπές δυτικές κοινωνίες: σε μια «προοδευτική» οπτική γωνία της εξέλιξής μας, τα παιδιά ως μέλλον σηματοδοτούν μια αυταξία. Ειδικά όταν είναι κάπως λίγα και επενδύουμε (ψυχικά και οικονομικά) πολλά σε αυτά. Δεν είναι επίσης απολύτως σίγουρο ότι οι αντιδράσεις στην αστυνομική επέμβαση στο Τζόκερ είναι αντιπροσωπευτικές της κοινωνικής αντίληψης.</p>
