@@ -19,4 +19,11 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ]);
 
+mix.js('resources/js/article.js', 'public/js')
+
 mix.copyDirectory('resources/assets','public/assets');
+
+mix.browserSync({
+    proxy: '127.0.0.1:8000',
+    notify: false
+});

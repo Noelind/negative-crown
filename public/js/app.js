@@ -2164,6 +2164,8 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./theme */ "./resources/js/theme.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2194,6 +2196,54 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/theme.js":
+/*!*******************************!*\
+  !*** ./resources/js/theme.js ***!
+  \*******************************/
+/***/ (() => {
+
+/*
+   Light / Dark Mode
+   Switcher logic for changing themes
+
+*/
+var toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+var sunIcon = document.getElementById('sun-icon');
+var moonIcon = document.getElementById('moon-icon');
+
+if (localStorage.theme == "light") {
+  document.documentElement.classList.remove("dark");
+  sunIcon.classList.add('hidden');
+  moonIcon.classList.remove('hidden');
+  console.log("ON LOAD - theme is white");
+} else {
+  toggleSwitch.checked = true;
+  document.documentElement.classList.add("dark");
+  moonIcon.classList.add('hidden');
+  sunIcon.classList.remove('hidden');
+  console.log("ON LOAD - theme is dark");
+}
+
+function switchTheme(e, element) {
+  if (e.target.checked) {
+    window.localStorage.setItem('theme', 'dark');
+    document.documentElement.classList.add("dark");
+    sunIcon.classList.remove('hidden');
+    moonIcon.classList.add('hidden');
+    console.log("THEME SWITCH - theme is dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    window.localStorage.setItem('theme', 'light');
+    moonIcon.classList.remove('hidden');
+    sunIcon.classList.add('hidden');
+    console.log("THEME SWITCH - theme is white");
+  }
+}
+
+toggleSwitch.addEventListener('input', switchTheme, false); // if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
 
 /***/ }),
 

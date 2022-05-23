@@ -21,6 +21,9 @@ module.exports = {
         grayscale: {
             50: '50%',
         },
+        colors: {
+            'neutral-1000': 'rgb(12,12,12)',
+        },
         transitionDuration: {
             1500: '1500ms',
             2000: '2000ms',
@@ -37,8 +40,10 @@ module.exports = {
         },
         lineHeight:{
             '11': '3rem',
+            '11.5': '3.3rem',
             '12': '3.5rem',
             '13': '4rem',
+            '14': '5rem',
             '40': '4rem',
         },
         lineClamp: {
@@ -46,14 +51,17 @@ module.exports = {
             8: '8',
             9: '9',
             10: '10',
-          }
-
+          },
     },
     screens: {
         'xsm': '400px',
-        ...defaultTheme.screens,
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
     },
   },
+  darkMode: 'class',
   plugins: [
     require('@tailwindcss/line-clamp'),
   ],

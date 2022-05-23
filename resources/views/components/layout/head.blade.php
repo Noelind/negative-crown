@@ -7,6 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+    {{-- Prevent flash of Default Light Theme --}}
+    <script>if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);</script>
+
+    <script defer type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <title>Negative Crown</title>
 </head>

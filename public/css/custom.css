@@ -1,20 +1,32 @@
+:root {
+  --dark-mode-bg-color: @apply bg-neutral-1000;
+}
+
 html {
   font-size: 62.5%;
 }
 
 .underline-fx::before {
   width: 0;
-  height: 10px;
+  height: 5px;
   background: #D3D3D3;
   content: "";
   position: absolute;
   left: -20px;
   top: 10px;
   z-index: -1;
-  transition: 500ms;
+  transition-property: width background-color;
+  transition-duration: 500ms;
+  transform: rotate(1deg);
 }
 .underline-fx:hover::before {
   width: 100%;
+}
+
+.dark .underline-fx::before {
+  background: #2c2c2c;
+  transition-property: width background-color;
+  transition-duration: 500ms;
 }
 
 .eyelid-fx {
@@ -24,15 +36,32 @@ html {
   border-radius: 0 0 0 0;
 }
 
-.obscure-text::after {
+.obscure-text::before, .obscure-text::after {
+  transition: 500ms;
   width: 100%;
   height: 100%;
   position: absolute;
   content: "";
   left: 0;
   top: 0;
-  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 212, 255, 0) 100%);
   pointer-events: none;
+}
+.obscure-text::before {
+  background: linear-gradient(0deg, rgb(12, 12, 12) 0%, rgba(12, 12, 12, 0) 100%);
+  opacity: 0%;
+}
+.obscure-text::after {
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 100%;
+}
+
+.dark .obscure-text::before {
+  opacity: 100%;
+  transition: 500ms;
+}
+.dark .obscure-text::after {
+  opacity: 0%;
+  transition: 500ms;
 }
 
 .vertical-line {
@@ -45,4 +74,29 @@ html {
   content: "";
   background-color: #D8D8D8;
   transform: translateY(-25%);
+}
+
+.article-bg-image::before {
+  content: "";
+  position: absolute;
+  width: 1834px;
+  height: 250px;
+  z-index: -2;
+  background-image: var(--article-bg-image);
+  left: 86px;
+  top: 65px;
+}
+.article-bg-image::after {
+  content: "";
+  position: absolute;
+  width: 1834px;
+  height: 250px;
+  z-index: -1;
+  background: hsla(0deg, 0%, 100%, 0.5);
+  left: 86px;
+  top: 65px;
+}
+
+.dark .article-img-shadow {
+  box-shadow: 0px 0px 15px rgb(113, 29, 60);
 }

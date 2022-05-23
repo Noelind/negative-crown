@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Homepage
 Route::get('/', function () {
     return view('articles');
 })->name('home');
+
+
+// Search Results
+Route::get('/search', function () {
+    return view('search-results');
+})->name('search-results');
+
+
+// Read single article
+Route::get('/article', function () {
+    return view('article');
+})->name('article');
