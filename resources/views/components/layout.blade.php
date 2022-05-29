@@ -6,9 +6,9 @@
 
         <x-layout.header />
 
-
+        <main id="swup" class="swupsition-fade">
             {{$slot}}
-
+        </main>
         {{-- <x-layout.footer /> --}}
     </body>
 </html>

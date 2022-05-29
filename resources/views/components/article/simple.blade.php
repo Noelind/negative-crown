@@ -1,5 +1,5 @@
 <article class="flex flex-col my-10 ">
-    <a href="article">
+    <a href="/article">
         <picture class="">
             <source srcset="/storage/images/blog-img-mb.avif" type="image/avif">
             <img class="mb-10 eyelid-fx ease-in-out duration-1500 grayscale-50 hover:grayscale-0 article-img-shadow"
@@ -9,7 +9,7 @@
     </a>
 
     <div class="flex flex-col justify-between max-w-[350px]">
-        <a href="article">
+        <a href="/article">
             <h2 class="mb-8 text-2xl font-medium leading-9 dark:text-white transition ease-in-out duration-500">Τίτλος Άρθρου με ελληνικά γράμματα που πιάνει 2 γραμμές</h2>
         </a>
         <div class="flex flex-row justify-between">

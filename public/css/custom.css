@@ -28,6 +28,14 @@ html {
   transition-property: width background-color;
   transition-duration: 500ms;
 }
+.dark .underline-fx.mobile-menu-links::before {
+  background: #D3D3D3;
+  transition-property: width background-color;
+  transition-duration: 500ms;
+}
+.dark .mobile-menu-links {
+  color: black;
+}
 
 .eyelid-fx {
   border-radius: 100% 0% 100% 0%/100% 0% 100% 0%;
@@ -78,4 +86,20 @@ html {
 
 .dark .article-img-shadow {
   box-shadow: 0px 0px 15px rgb(113, 29, 60);
+}
+
+.swupsition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .swupsition-fade {
+  opacity: 0;
+}
+
+#menu-checkbox:checked + .menu-icon {
+  @apply hidden;
+}
+#menu-checkbox:checked + .close-icon {
+  @apply block;
 }

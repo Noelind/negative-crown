@@ -3,21 +3,21 @@
    Switcher logic for changing themes
 
 */
-let toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-let sunIcon = document.getElementById('sun-icon');
-let moonIcon = document.getElementById('moon-icon');
+let toggleSwitch = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+let sunIcon = document.getElementsByClassName('sun-icon');
+let moonIcon = document.getElementsByClassName('moon-icon');
 
 if (localStorage.theme == "light") {
     document.documentElement.classList.remove("dark");
-    sunIcon.classList.add('hidden');
-    moonIcon.classList.remove('hidden');
-    console.log("ON LOAD - theme is white");
+    document.documentElement.classList.add("light");
+    sunIcon[0].classList.add('hidden');sunIcon[1].classList.add('hidden');
+    moonIcon[0].classList.remove('hidden');moonIcon[1].classList.remove('hidden');
 } else {
     toggleSwitch.checked = true;
     document.documentElement.classList.add("dark");
-    moonIcon.classList.add('hidden');
-    sunIcon.classList.remove('hidden');
-    console.log("ON LOAD - theme is dark");
+    document.documentElement.classList.remove("light");
+    moonIcon[0].classList.add('hidden');moonIcon[1].classList.add('hidden');
+    sunIcon[0].classList.remove('hidden');sunIcon[1].classList.remove('hidden');
 }
 
 function switchTheme(e, element) {
@@ -25,17 +25,16 @@ function switchTheme(e, element) {
     if (e.target.checked) {
         window.localStorage.setItem('theme', 'dark');
         document.documentElement.classList.add("dark");
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-        console.log("THEME SWITCH - theme is dark");
+        document.documentElement.classList.remove("light");
+        sunIcon[0].classList.remove('hidden');sunIcon[1].classList.remove('hidden');
+        moonIcon[0].classList.add('hidden');moonIcon[1].classList.add('hidden');
     } else {
         document.documentElement.classList.remove("dark");
+        document.documentElement.classList.add("light");
         window.localStorage.setItem('theme', 'light');
-        moonIcon.classList.remove('hidden');
-        sunIcon.classList.add('hidden');
-        console.log("THEME SWITCH - theme is white");
+        moonIcon[0].classList.remove('hidden');moonIcon[1].classList.remove('hidden');
+        sunIcon[0].classList.add('hidden');sunIcon[1].classList.add('hidden');
     }
 }
-toggleSwitch.addEventListener('input', switchTheme, false);
-
-// if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
+toggleSwitch[0].addEventListener('input', switchTheme, false);
+toggleSwitch[1].addEventListener('input', switchTheme, false);

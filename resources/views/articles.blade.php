@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="md:ml-[86px] mx-auto py-28 px-8">
+    <div class="md:ml-[86px] mx-auto md:pt-28 px-8">
         <div class="container mx-auto">
             <x-article.featured />
 

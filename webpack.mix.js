@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,19 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.sass("resources/scss/custom.scss", "public/css");
 
-mix.sass('resources/scss/custom.scss', 'public/css');
+mix.js(
+    ["resources/js/app.js", "resources/js/transition.js"],
+    "public/js"
+).postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('tailwindcss'),
-    ]);
-
-mix.js('resources/js/article.js', 'public/js')
-
-mix.copyDirectory('resources/assets','public/assets');
+mix.copyDirectory("resources/assets", "public/assets");
 
 mix.browserSync({
-    proxy: '127.0.0.1:8000',
-    notify: false
+    proxy: "127.0.0.1:8000",
+    notify: false,
 });

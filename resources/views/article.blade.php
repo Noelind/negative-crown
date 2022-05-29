@@ -12,6 +12,4 @@
     </div>
 </div>
 
-<x-layout.scripts :jsFile="'article.js'"/>
-
 </x-layout>

@@ -12,6 +12,9 @@ module.exports = {
         sans: ['Manrope', 'sans-serif']
     },
     extend: {
+        backgroundImage: {
+            'menu-icon': "url('/assets/icons/menu.svg'"
+        },
         width:{
             'vscreen': '100vh',
         },
