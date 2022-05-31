@@ -1,11 +1,20 @@
 <header id="site-header"
 	class="flex flex-row items-center justify-between border-b px-8 py-8 duration-500 dark:border-neutral-600 md:ml-[86px] md:justify-center">
-	<h1>
-		<a href="{{ route('home') }}">
-			<x-layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
-			<x-layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
-		</a>
-	</h1>
+	@if (Route::is('home'))
+		<h1>
+			<a href="{{ route('home') }}">
+				<x-layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
+				<x-layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
+			</a>
+		</h1>
+	@else
+		<div>
+			<a href="{{ route('home') }}">
+				<x-layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
+				<x-layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
+			</a>
+		</div>
+	@endif
 	<x-layout.icons :iconChoice="'burger-menu'" />
 	<div
 		class="w-vscreen origin-top-center dark:bg-neutral-1000 fixed left-0 top-1/2 z-10 hidden -translate-x-1/2 -rotate-90 border-b border-solid bg-white pr-6 transition duration-500 ease-in-out dark:border-neutral-600 dark:text-white md:flex">

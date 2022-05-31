@@ -1,1 +1,1 @@
-<a href="/category" class="text-xl font-bold md:tracking-widest-plus text-neutral-600 dark:text-neutral-400 transition ease-in-out duration-500">crown thoughts</a>
+<a href="/category" class="md:tracking-widest-plus text-lg font-bold text-neutral-600 transition duration-500 ease-in-out dark:text-neutral-400 lg:text-xl">crown thoughts</a>

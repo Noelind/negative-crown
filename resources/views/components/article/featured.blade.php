@@ -19,9 +19,8 @@
 		</a>
 		{{-- <span class="mb-5 text-xl lg:text-xl font-normal md:tracking-widest-plus text-green-700">new read</span> --}}
 		<div class="flex flex-row justify-between lg:mb-12">
-			<span class="font-color font-serif text-xl font-normal text-neutral-600 transition duration-500 ease-in-out dark:text-neutral-400 lg:text-xl">Published <strong>3 hours
-					ago</strong></span>
-			<span class="vertical-line block lg:hidden"></span>
+			<x-article.date />
+			{{-- <span class="vertical-line block lg:hidden"></span> --}}
 			<div class="flex flex-row justify-between gap-10">
 				<x-article.category />
 			</div>
