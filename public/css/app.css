@@ -548,6 +548,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -557,20 +560,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-5 {
   margin-left: 1.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
+.mb-4 {
+  margin-bottom: 1rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
 }
 .-ml-px {
   margin-left: -1px;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mb-20 {
-  margin-bottom: 5rem;
 }
 .block {
   display: block;
@@ -848,14 +845,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-bold {
   font-weight: 700;
 }
+.font-normal {
+  font-weight: 400;
+}
 .font-semibold {
   font-weight: 600;
 }
 .font-medium {
   font-weight: 500;
-}
-.font-normal {
-  font-weight: 400;
 }
 .font-light {
   font-weight: 300;
@@ -881,14 +878,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .leading-11\.5 {
   line-height: 3.3rem;
 }
-.leading-5 {
-  line-height: 1.25rem;
-}
-.leading-8 {
-  line-height: 2rem;
-}
 .leading-12 {
   line-height: 3.5rem;
+}
+.leading-5 {
+  line-height: 1.25rem;
 }
 .tracking-wider {
   letter-spacing: 0.05em;
@@ -1217,12 +1211,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-left-width: 1px;
   }
 
-  .md\:pt-28 {
-    padding-top: 7rem;
-  }
-
   .md\:pl-\[86px\] {
     padding-left: 86px;
+  }
+
+  .md\:pt-28 {
+    padding-top: 7rem;
   }
 
   .md\:leading-13 {
@@ -1298,11 +1292,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 2rem;
   }
 
-  .lg\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1335,18 +1324,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:leading-13 {
     line-height: 4rem;
-  }
-
-  .lg\:leading-14 {
-    line-height: 5rem;
-  }
-
-  .lg\:leading-10 {
-    line-height: 2.5rem;
-  }
-
-  .lg\:leading-12 {
-    line-height: 3.5rem;
   }
 
   .lg\:line-clamp-10 {

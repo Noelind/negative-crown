@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', function () {
-    return view('articles');
+    return view('page.home', ['articles' => Article::all()]);
 })->name('home');
 
+// Author's Page
+Route::get('/author', function () {
+    return view('page.author', ['articles' => Article::all()]);
+})->name('author');
 
-// Search Results
-Route::get('/search', function () {
-    return view('search-results');
-})->name('search-results');
 
 
 // Read single article
-Route::get('/article', function () {
-    return view('article');
+Route::get('/article/{article}', function ($id) {
+    return view('page.article', ['article' => Article::findOrFail($id)]);
 })->name('article');
