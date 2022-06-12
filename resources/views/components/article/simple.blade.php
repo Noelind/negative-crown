@@ -1,7 +1,7 @@
 @props(['article'])
 
 <article class="my-10 flex flex-col">
-	<a href="{{ route('article', ['article' => $article->id]) }}">
+	<a href="{{ route('article', ['article' => $article->slug]) }}">
 		<picture class="">
 			<source srcset="/storage/images/blog-img-mb.avif" type="image/avif">
 			<img class="eyelid-fx duration-1500 grayscale-50 article-img-shadow mb-10 ease-in-out hover:grayscale-0"
@@ -11,8 +11,8 @@
 	</a>
 
 	<div class="flex max-w-[350px] flex-col justify-between dark:text-white">
-		<a href="{{ route('article', ['article' => $article->id]) }}">
-			<h2 class="mb-8 text-2xl font-medium leading-9 transition duration-500 ease-in-out dark:text-white">{{ $article->title }}</h2>
+		<a href="{{ route('article', ['article' => $article->slug]) }}">
+			<h2 class="mb-8 text-3xl font-medium leading-9 transition duration-500 ease-in-out dark:text-white">{{ $article->title }}</h2>
 		</a>
 		<x-article.author :author="$article->author" />
 		<div class="flex flex-row justify-between">

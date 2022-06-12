@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
-
+use App\Models\Category;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,19 +15,26 @@ use App\Models\Article;
 |
 */
 
+// with('category')->get() | N+1 Queries problem solution
+
 // Homepage
 Route::get('/', function () {
-    return view('page.home', ['articles' => Article::all()]);
+    return view('page.articles', ['articles' => Article::latest()->with('category', 'author')->get()]);
 })->name('home');
 
+
+Route::get('/category/{category:slug}', function (Category $category) {
+    return view('page.articles', ['articles' => $category->articles] );
+})->name('category');
+
 // Author's Page
-Route::get('/author', function () {
-    return view('page.author', ['articles' => Article::all()]);
+Route::get('/author/{author:username}', function (User $author) {
+    return view('page.articles', [ 'articles' => $author->articles]);
 })->name('author');
 
 
 
 // Read single article
-Route::get('/article/{article}', function ($id) {
-    return view('page.article', ['article' => Article::findOrFail($id)]);
+Route::get('/article/{article:slug}', function (Article $article) {
+    return view('page.article', ['article' => $article]);
 })->name('article');

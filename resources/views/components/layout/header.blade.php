@@ -21,6 +21,9 @@
 		<div class="container py-7" id="vertical-header">
 			<nav class="flex items-center justify-end gap-16">
 				<ul class="flex flex-row-reverse gap-20 text-xl" id="vertical-menu">
+					{{-- @foreach ($categories as $category)
+						<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="$category->name" :slug="$category->slug" />
+					@endforeach --}}
 					<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :text="'crown thoughts'" :href="'/crown-thoughts'" />
 					<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :text="'books'" :href="'/books'" />
 					<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :text="'comics'" :href="'/comics'" />
