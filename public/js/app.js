@@ -2300,14 +2300,14 @@ var swup = new swup__WEBPACK_IMPORTED_MODULE_0__["default"](options); // Scroll 
 swup.on('contentReplaced', function () {
   window.scrollTo(0, 0);
 });
-init();
-swup.on('contentReplaced', init);
+onLoad();
+swup.on('contentReplaced', onLoad);
 
-function init() {
-  console.log("eksw");
-
+function onLoad() {
+  // On page load reset the mobile menu checkbox to close the menu.
   if (document.getElementById("menu-checkbox")) {
     document.getElementById("menu-checkbox").checked = false;
+    document.body.style.overflow = "initial";
   }
 }
 
