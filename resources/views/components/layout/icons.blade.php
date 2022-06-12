@@ -1,4 +1,4 @@
-@props(['iconChoice', 'mobileMenu' => 'false'])
+@props(['iconChoice', 'mobileMenu' => 'false', 'categories' => '.'])
 {{-- WEBSITE ICONS --}}
 
 
@@ -30,7 +30,7 @@
 	<label class="pointer-events-none relative md:hidden" for="menu-checkbox">
 		<input id="menu-checkbox" name="menu-checkbox" type="checkbox"
 			class="peer pointer-events-auto absolute left-0 top-0 z-20 h-[20px] w-[32px] cursor-pointer opacity-0">
-		<x-menu.mobile />
+		<x-menu.mobile :categories="$categories" />
 		<svg class="menu-icon transition-all duration-500 peer-checked:translate-x-20" width="30" height="20"
 			viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path class="dark:fill-white" d="M0 0V3H30V0H0ZM8 8V11H30V8H8ZM4 17V20H30V17H4Z" fill="black" />

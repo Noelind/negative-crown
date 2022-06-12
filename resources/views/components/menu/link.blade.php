@@ -1,3 +1,3 @@
-@props(['text' => '.', 'slug' => '.'])
+@props(['name' => '.', 'slug' => '.'])
 <li {{ $attributes->merge(['class' => 'relative underline-fx tracking-widest-plus']) }}><a
-		href="{{ route('category', ['category' => $slug]) }}">{{ $text }}</a></li>
+		href="{{ route('category', ['category' => $slug]) }}">{{ $name }}</a></li>

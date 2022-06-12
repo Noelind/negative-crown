@@ -1,3 +1,5 @@
+@props(['categories' => [1, 2]])
+
 <div class="dark:bg-neutral-1000 fixed top-0 left-0 z-10 h-0 w-screen bg-white opacity-50 transition-all duration-700 peer-checked:h-full">
 </div>
 <nav role="navigation"
@@ -10,10 +12,10 @@
 	</svg>
 
 	<ul class="flex flex-col items-center justify-center gap-10 dark:text-black">
-		<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :text="'crown thoughts'" :href="'/crown-thoughts'" />
-		<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :text="'books'" :href="'/books'" />
-		<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :text="'comics'" :href="'/comics'" />
-		<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :text="'photo gallery'" :href="'/photo-gallery'" />
+		@foreach ($categories as $category)
+			{{-- {{ $category }} --}}
+			<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="$category->name" :slug="$category->slug" />
+		@endforeach
 		<x-layout.icons :iconChoice="'theme'" :mobileMenu="'true'" />
 	</ul>
 

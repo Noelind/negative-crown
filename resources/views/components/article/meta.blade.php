@@ -18,7 +18,7 @@
 
 			<h1 class="leading-12 mb-10 mt-10 text-4xl font-bold lg:my-0">{{ $article->title }}</h1>
 			<div class="mt-8 flex justify-between lg:flex-col">
-				<x-article.date {{ $attributes->merge(['class' => 'text-xl mb-4']) }} />
+				<x-article.date {{ $attributes->merge(['class' => 'text-xl mb-4']) }} :date="$article->published_at" />
 				<span class="font-color font-serif text-lg font-normal text-neutral-600 transition duration-500 ease-in-out dark:text-neutral-400 lg:text-xl">
 					Estimated Read: <strong>4 minutes</strong>
 				</span>

@@ -2300,6 +2300,16 @@ var swup = new swup__WEBPACK_IMPORTED_MODULE_0__["default"](options); // Scroll 
 swup.on('contentReplaced', function () {
   window.scrollTo(0, 0);
 });
+init();
+swup.on('contentReplaced', init);
+
+function init() {
+  console.log("eksw");
+
+  if (document.getElementById("menu-checkbox")) {
+    document.getElementById("menu-checkbox").checked = false;
+  }
+}
 
 /***/ }),
 

@@ -4,7 +4,7 @@
 	@endphp
 @endif
 
-<x-layout {{-- :categories="$categories" --}}>
+<x-layout :categories="$categories">
 
 
 
@@ -17,11 +17,11 @@
 			@endif
 
 			@if (Route::is('author'))
-				<h1>{{ $articles[0]->author->name }}</h1>
+				<h1 class="text-4xl text-black dark:text-white">This is author: {{ $articles[0]->author->name }}</h1>
 			@endif
 
 			@if (Route::is('category'))
-				<h1>{{ $articles[0]->category->name }}</h1>
+				<h1 class="text-4xl text-black dark:text-white">This is category: {{ $articles[0]->category->name }}</h1>
 			@endif
 
 			<div class="xsm:grid-cols-2 grid grid-cols-1 gap-32 sm:grid-cols-3">

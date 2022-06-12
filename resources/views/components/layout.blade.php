@@ -1,4 +1,4 @@
-@props(['categories'])
+@props(['categories' => '.'])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
 
 <body class="dark:bg-neutral-1000 transition-colors duration-500 ease-in-out">
 
-	<x-layout.header {{-- :categories="$categories" --}} />
+	<x-layout.header :categories="$categories" />
 	<main id="swup" class="swupsition-fade">
 		{{ $slot }}
 	</main>

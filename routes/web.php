@@ -19,22 +19,35 @@ use App\Models\User;
 
 // Homepage
 Route::get('/', function () {
-    return view('page.articles', ['articles' => Article::latest()->with('category', 'author')->get()]);
+    return view('page.articles', [
+        'articles' => Article::latest('published_at')->with('category', 'author')->get(),
+        'categories' => Category::all()
+    ]);
 })->name('home');
 
 
 Route::get('/category/{category:slug}', function (Category $category) {
-    return view('page.articles', ['articles' => $category->articles] );
+    return view('page.articles', [
+        'articles' => $category->articles,
+        'currentCategory' => $category,
+        'categories' => Category::all()
+    ]);
 })->name('category');
 
 // Author's Page
 Route::get('/author/{author:username}', function (User $author) {
-    return view('page.articles', [ 'articles' => $author->articles]);
+    return view('page.articles', [
+        'articles' => $author->articles,
+        'categories' => Category::all()
+    ]);
 })->name('author');
 
 
 
 // Read single article
 Route::get('/article/{article:slug}', function (Article $article) {
-    return view('page.article', ['article' => $article]);
+    return view('page.article', [
+        'article' => $article,
+        'categories' => Category::all()
+    ]);
 })->name('article');

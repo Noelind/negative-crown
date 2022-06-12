@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :categories="$categories">
 
 	<x-article.meta :article="$article" />
 
