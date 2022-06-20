@@ -1,6 +1,221 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@swup/forms-plugin/lib/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@swup/forms-plugin/lib/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _plugin = __webpack_require__(/*! @swup/plugin */ "./node_modules/@swup/plugin/lib/index.js");
+
+var _plugin2 = _interopRequireDefault(_plugin);
+
+var _delegate = __webpack_require__(/*! delegate */ "./node_modules/delegate/src/delegate.js");
+
+var _delegate2 = _interopRequireDefault(_delegate);
+
+var _utils = __webpack_require__(/*! swup/lib/utils */ "./node_modules/swup/lib/utils/index.js");
+
+var _Link = __webpack_require__(/*! swup/lib/helpers/Link */ "./node_modules/swup/lib/helpers/Link.js");
+
+var _Link2 = _interopRequireDefault(_Link);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FormPlugin = function (_Plugin) {
+    _inherits(FormPlugin, _Plugin);
+
+    function FormPlugin(options) {
+        _classCallCheck(this, FormPlugin);
+
+        var _this = _possibleConstructorReturn(this, (FormPlugin.__proto__ || Object.getPrototypeOf(FormPlugin)).call(this));
+
+        _this.name = "FormsPlugin";
+
+
+        var defaultOptions = {
+            formSelector: 'form[data-swup-form]'
+        };
+
+        _this.options = _extends({}, defaultOptions, options);
+        return _this;
+    }
+
+    _createClass(FormPlugin, [{
+        key: 'mount',
+        value: function mount() {
+            var swup = this.swup;
+
+            // add empty handlers array for submitForm event
+            swup._handlers.submitForm = [];
+            swup._handlers.openFormSubmitInNewTab = [];
+
+            // register handler
+            swup.delegatedListeners.formSubmit = (0, _delegate2.default)(document, this.options.formSelector, 'submit', this.onFormSubmit.bind(this));
+        }
+    }, {
+        key: 'unmount',
+        value: function unmount() {
+            swup.delegatedListeners.formSubmit.destroy();
+        }
+    }, {
+        key: 'onFormSubmit',
+        value: function onFormSubmit(event) {
+            var swup = this.swup;
+
+            // no control key pressed
+            if (!event.metaKey) {
+                var form = event.target;
+                var formData = new FormData(form);
+                var actionAttribute = form.getAttribute('action') || window.location.href;
+                var methodAttribute = form.getAttribute('method') || 'GET';
+                var link = new _Link2.default(actionAttribute);
+
+                // fomr
+                swup.triggerEvent('submitForm', event);
+
+                event.preventDefault();
+
+                if (link.getHash() != '') {
+                    swup.scrollToElement = link.getHash();
+                }
+
+                // get custom transition from data
+                var customTransition = form.getAttribute('data-swup-transition');
+
+                if (methodAttribute.toLowerCase() != 'get') {
+                    // remove page from cache
+                    swup.cache.remove(link.getAddress());
+
+                    // send data
+                    swup.loadPage({
+                        url: link.getAddress(),
+                        method: methodAttribute,
+                        data: formData,
+                        customTransition: customTransition
+                    });
+                } else {
+                    // create base url
+                    var url = link.getAddress() || window.location.href;
+                    var inputs = (0, _utils.queryAll)('input, select', form);
+                    if (url.indexOf('?') == -1) {
+                        url += '?';
+                    } else {
+                        url += '&';
+                    }
+
+                    // add form data to url
+                    inputs.forEach(function (input) {
+                        if (input.type == 'checkbox' || input.type == 'radio') {
+                            if (input.checked) {
+                                url += encodeURIComponent(input.name) + '=' + encodeURIComponent(input.value) + '&';
+                            }
+                        } else {
+                            url += encodeURIComponent(input.name) + '=' + encodeURIComponent(input.value) + '&';
+                        }
+                    });
+
+                    // remove last "&"
+                    url = url.slice(0, -1);
+
+                    // remove page from cache
+                    swup.cache.remove(url);
+
+                    // send data
+                    swup.loadPage({
+                        url: url,
+                        customTransition: customTransition
+                    });
+                }
+            } else {
+                swup.triggerEvent('openFormSubmitInNewTab', event);
+            }
+        }
+    }]);
+
+    return FormPlugin;
+}(_plugin2.default);
+
+exports["default"] = FormPlugin;
+
+/***/ }),
+
+/***/ "./node_modules/@swup/plugin/lib/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/@swup/plugin/lib/index.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Plugin = function () {
+    function Plugin() {
+        _classCallCheck(this, Plugin);
+
+        this.isSwupPlugin = true;
+    }
+
+    _createClass(Plugin, [{
+        key: "mount",
+        value: function mount() {
+            // this is mount method rewritten by class extending
+            // and is executed when swup is enabled with plugin
+        }
+    }, {
+        key: "unmount",
+        value: function unmount() {
+            // this is unmount method rewritten by class extending
+            // and is executed when swup with plugin is disabled
+        }
+    }, {
+        key: "_beforeMount",
+        value: function _beforeMount() {
+            // here for any future hidden auto init
+        }
+    }, {
+        key: "_afterUnmount",
+        value: function _afterUnmount() {}
+        // here for any future hidden auto-cleanup
+
+
+        // this is here so we can tell if plugin was created by extending this class
+
+    }]);
+
+    return Plugin;
+}();
+
+exports["default"] = Plugin;
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -2228,44 +2443,37 @@ menuState.addEventListener('change', function () {
 /*!*******************************!*\
   !*** ./resources/js/theme.js ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _transition_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transition.js */ "./resources/js/transition.js");
 /*
    Light / Dark Mode
    Switcher logic for changing themes
 
 */
-
-_transition_js__WEBPACK_IMPORTED_MODULE_0__.swup.on('contentReplaced', checkTheme);
 var toggleSwitch = document.querySelectorAll('.theme-switch input[type="checkbox"]');
 var sunIcon = document.getElementsByClassName('sun-icon');
 var moonIcon = document.getElementsByClassName('moon-icon');
 
-function checkTheme() {
-  if (localStorage.theme == "light") {
-    document.documentElement.classList.remove("dark");
-    document.documentElement.classList.add("light");
-    sunIcon[0].classList.add('hidden');
-    sunIcon[1].classList.add('hidden');
-    moonIcon[0].classList.remove('hidden');
-    moonIcon[1].classList.remove('hidden');
-  } else {
-    toggleSwitch.checked = true;
-    document.documentElement.classList.add("dark");
-    document.documentElement.classList.remove("light");
-    moonIcon[0].classList.add('hidden');
-    moonIcon[1].classList.add('hidden');
-    sunIcon[0].classList.remove('hidden');
-    sunIcon[1].classList.remove('hidden');
-  }
+if (localStorage.theme == "light") {
+  document.documentElement.classList.remove("dark");
+  document.documentElement.classList.add("light");
+  sunIcon[0].classList.add('hidden');
+  sunIcon[1].classList.add('hidden');
+  moonIcon[0].classList.remove('hidden');
+  moonIcon[1].classList.remove('hidden');
+} else {
+  toggleSwitch.checked = true;
+  document.documentElement.classList.add("dark");
+  document.documentElement.classList.remove("light");
+  moonIcon[0].classList.add('hidden');
+  moonIcon[1].classList.add('hidden');
+  sunIcon[0].classList.remove('hidden');
+  sunIcon[1].classList.remove('hidden');
 }
 
-checkTheme();
-
 function switchTheme(e, element) {
+  console.log("swtichTheme");
+
   if (e.target.checked) {
     window.localStorage.setItem('theme', 'dark');
     document.documentElement.classList.add("dark");
@@ -2298,16 +2506,18 @@ toggleSwitch[1].addEventListener('input', switchTheme, false);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "swup": () => (/* binding */ swup)
-/* harmony export */ });
 /* harmony import */ var swup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swup */ "./node_modules/swup/lib/index.js");
+/* harmony import */ var _swup_forms_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @swup/forms-plugin */ "./node_modules/@swup/forms-plugin/lib/index.js");
+
  // Swup Options
 
 var options = {
   cache: false,
   animationSelector: '[class*="swupsition-"]',
-  containers: ["#swup-main", "#site-header"]
+  containers: ["#swup-main", "#site-logo"],
+  plugins: [new _swup_forms_plugin__WEBPACK_IMPORTED_MODULE_1__["default"]({
+    formSelector: 'form[data-swup-form]'
+  })]
 }; // Instantiate new swup object
 
 var swup = new swup__WEBPACK_IMPORTED_MODULE_0__["default"](options); // Scroll to top of page when loaded
@@ -2325,8 +2535,6 @@ function onLoad() {
     document.body.style.overflow = "initial";
   }
 }
-
- // Use in theme.js to run checkTheme()
 
 /***/ }),
 
@@ -2391,7 +2599,7 @@ var closest = __webpack_require__(/*! ./closest */ "./node_modules/delegate/src/
  * @param {Boolean} useCapture
  * @return {Object}
  */
-function delegate(element, selector, type, callback, useCapture) {
+function _delegate(element, selector, type, callback, useCapture) {
     var listenerFn = listener.apply(this, arguments);
 
     element.addEventListener(type, listenerFn, useCapture);
@@ -2401,6 +2609,40 @@ function delegate(element, selector, type, callback, useCapture) {
             element.removeEventListener(type, listenerFn, useCapture);
         }
     }
+}
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element|String|Array} [elements]
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function delegate(elements, selector, type, callback, useCapture) {
+    // Handle the regular Element usage
+    if (typeof elements.addEventListener === 'function') {
+        return _delegate.apply(null, arguments);
+    }
+
+    // Handle Element-less usage, it defaults to global delegation
+    if (typeof type === 'function') {
+        // Use `document` as the first parameter, then apply arguments
+        // This is a short way to .unshift `arguments` without running into deoptimizations
+        return _delegate.bind(null, document).apply(null, arguments);
+    }
+
+    // Handle Selector-based usage
+    if (typeof elements === 'string') {
+        elements = document.querySelectorAll(elements);
+    }
+
+    // Handle Array-like based usage
+    return Array.prototype.map.call(elements, function (element) {
+        return _delegate(element, selector, type, callback, useCapture);
+    });
 }
 
 /**
@@ -20260,9 +20502,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 // modules
 
 
-var _delegate = __webpack_require__(/*! delegate */ "./node_modules/delegate/src/delegate.js");
+var _delegateIt = __webpack_require__(/*! delegate-it */ "./node_modules/delegate-it/index.js");
 
-var _delegate2 = _interopRequireDefault(_delegate);
+var _delegateIt2 = _interopRequireDefault(_delegateIt);
 
 var _Cache = __webpack_require__(/*! ./modules/Cache */ "./node_modules/swup/lib/modules/Cache.js");
 
@@ -20405,7 +20647,7 @@ var Swup = function () {
 			}
 
 			// add event listeners
-			this.delegatedListeners.click = (0, _delegate2.default)(document, this.options.linkSelector, 'click', this.linkClickHandler.bind(this));
+			this.delegatedListeners.click = (0, _delegateIt2.default)(document, this.options.linkSelector, 'click', this.linkClickHandler.bind(this));
 			window.addEventListener('popstate', this.boundPopStateHandler);
 
 			// initial save to cache
@@ -21125,6 +21367,106 @@ var queryAll = exports.queryAll = function queryAll(selector) {
 
 	return Array.prototype.slice.call(context.querySelectorAll(selector));
 };
+
+/***/ }),
+
+/***/ "./node_modules/delegate-it/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/delegate-it/index.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/** Keeps track of raw listeners added to the base elements to avoid duplication */
+const ledger = new WeakMap();
+function editLedger(wanted, baseElement, callback, setup) {
+    var _a, _b;
+    if (!wanted && !ledger.has(baseElement)) {
+        return false;
+    }
+    const elementMap = (_a = ledger.get(baseElement)) !== null && _a !== void 0 ? _a : new WeakMap();
+    ledger.set(baseElement, elementMap);
+    if (!wanted && !ledger.has(baseElement)) {
+        return false;
+    }
+    const setups = (_b = elementMap.get(callback)) !== null && _b !== void 0 ? _b : new Set();
+    elementMap.set(callback, setups);
+    const existed = setups.has(setup);
+    if (wanted) {
+        setups.add(setup);
+    }
+    else {
+        setups.delete(setup);
+    }
+    return existed && wanted;
+}
+function isEventTarget(elements) {
+    return typeof elements.addEventListener === 'function';
+}
+function safeClosest(event, selector) {
+    let target = event.target;
+    if (target instanceof Text) {
+        target = target.parentElement;
+    }
+    if (target instanceof Element && event.currentTarget instanceof Element) {
+        // `.closest()` may match ancestors of `currentTarget` but we only need its children
+        const closest = target.closest(selector);
+        if (closest && event.currentTarget.contains(closest)) {
+            return closest;
+        }
+    }
+}
+// This type isn't exported as a declaration, so it needs to be duplicated above
+function delegate(base, selector, type, callback, options) {
+    // Handle Selector-based usage
+    if (typeof base === 'string') {
+        base = document.querySelectorAll(base);
+    }
+    // Handle Array-like based usage
+    if (!isEventTarget(base)) {
+        const subscriptions = Array.prototype.map.call(base, (element) => delegate(element, selector, type, callback, options));
+        return {
+            destroy() {
+                for (const subscription of subscriptions) {
+                    subscription.destroy();
+                }
+            },
+        };
+    }
+    // `document` should never be the base, it's just an easy way to define "global event listeners"
+    const baseElement = base instanceof Document ? base.documentElement : base;
+    // Handle the regular Element usage
+    const capture = Boolean(typeof options === 'object' ? options.capture : options);
+    const listenerFn = (event) => {
+        const delegateTarget = safeClosest(event, selector);
+        if (delegateTarget) {
+            event.delegateTarget = delegateTarget;
+            callback.call(baseElement, event);
+        }
+    };
+    // Drop unsupported `once` option https://github.com/fregante/delegate-it/pull/28#discussion_r863467939
+    if (typeof options === 'object') {
+        delete options.once;
+    }
+    const setup = JSON.stringify({ selector, type, capture });
+    const isAlreadyListening = editLedger(true, baseElement, callback, setup);
+    const delegateSubscription = {
+        destroy() {
+            baseElement.removeEventListener(type, listenerFn, options);
+            editLedger(false, baseElement, callback, setup);
+        },
+    };
+    if (!isAlreadyListening) {
+        baseElement.addEventListener(type, listenerFn, options);
+    }
+    return delegateSubscription;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (delegate);
+
 
 /***/ })
 

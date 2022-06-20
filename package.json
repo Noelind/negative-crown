@@ -22,7 +22,8 @@
         "tailwindcss": "^3.0.24"
     },
     "dependencies": {
+        "@swup/forms-plugin": "^1.1.1",
         "@tailwindcss/line-clamp": "^0.3.1",
-        "swup": "^2.0.14"
+        "swup": "^2.0.15"
     }
 }

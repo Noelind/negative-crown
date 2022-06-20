@@ -1,10 +1,12 @@
 import Swup from 'swup';
+import SwupFormsPlugin from '@swup/forms-plugin';
 
 // Swup Options
 const options = {
     cache: false,
     animationSelector: '[class*="swupsition-"]',
-    containers:["#swup-main","#site-header"]
+    containers:["#swup-main","#site-logo"],
+    plugins: [new SwupFormsPlugin({formSelector: 'form[data-swup-form]'})]
   };
 
 // Instantiate new swup object
@@ -27,5 +29,3 @@ function onLoad() {
         document.body.style.overflow = "initial";
     }
 }
-
-export {swup}; // Use in theme.js to run checkTheme()

@@ -557,9 +557,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-8 {
   margin-bottom: 2rem;
 }
-.ml-5 {
-  margin-left: 1.25rem;
-}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -713,6 +710,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-10 {
   gap: 2.5rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1042,6 +1042,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   background-image: url('//localhost:3000/assets/icons/search.svg');
 }
+.before\:bg-\[url\(\'\/\/localhost\:3000\/assets\/icons\/search-bk\.svg\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('//localhost:3000/assets/icons/search-bk.svg');
+}
 .before\:opacity-50::before {
   content: var(--tw-content);
   opacity: 0.5;
@@ -1080,6 +1084,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.after\:bg-black::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .after\:transition-all::after {
   content: var(--tw-content);
@@ -1198,6 +1207,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dark .dark\:text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.dark .dark\:before\:bg-\[url\(\'\/\/localhost\:3000\/assets\/icons\/search-wh\.svg\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('//localhost:3000/assets/icons/search-wh.svg');
+}
+.dark .dark\:after\:bg-white::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 @media (min-width: 400px) {
 
