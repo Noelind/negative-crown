@@ -25,8 +25,8 @@ class ArticleFactory extends Factory
             'category_id' => Category::factory(),
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
-            'excerpt' => $this->faker->sentence,
-            'body' => $this->faker->paragraph,
+            'excerpt' => $this->faker->paragraphs(4, true),
+            'body' => $this->faker->paragraphs(10, true),
             'published_at' => $this->faker->date,
         ];
     }

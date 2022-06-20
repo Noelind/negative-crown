@@ -13,10 +13,12 @@ const mix = require("laravel-mix");
 
 mix.sass("resources/scss/custom.scss", "public/css");
 
-mix.js(
-    ["resources/js/app.js", "resources/js/transition.js"],
-    "public/js"
-).postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
+// mix.js(
+//     ["resources/js/app.js", "resources/js/transition.js"],
+//     "public/js"
+// ).postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
+
+mix.js(["resources/js/app.js"],"public/js").postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
 
 mix.copyDirectory("resources/assets", "public/assets");
 

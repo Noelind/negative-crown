@@ -8,7 +8,7 @@
 <body class="dark:bg-neutral-1000 transition-colors duration-500 ease-in-out">
 
 	<x-layout.header :categories="$categories" />
-	<main id="swup" class="swupsition-fade">
+	<main id="swup-main" class="swupsition-fade">
 		{{ $slot }}
 	</main>
 	{{-- <x-layout.footer /> --}}

@@ -24,6 +24,10 @@
 				<h1 class="text-4xl text-black dark:text-white">This is category: {{ $articles[0]->category->name }}</h1>
 			@endif
 
+			@if (Route::is('search'))
+				<h1 class="text-4xl text-black dark:text-white">Search results for: {{ request('search') }}</h1>
+			@endif
+
 			<div class="xsm:grid-cols-2 grid grid-cols-1 gap-32 sm:grid-cols-3">
 				@if (Route::is('home'))
 					@foreach ($articles->skip(1) as $article)

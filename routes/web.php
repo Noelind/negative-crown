@@ -1,6 +1,8 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
@@ -18,36 +20,19 @@ use App\Models\User;
 // with('category')->get() | N+1 Queries problem solution
 
 // Homepage
-Route::get('/', function () {
-    return view('page.articles', [
-        'articles' => Article::latest('published_at')->with('category', 'author')->get(),
-        'categories' => Category::all()
-    ]);
-})->name('home');
-
-
-Route::get('/category/{category:slug}', function (Category $category) {
-    return view('page.articles', [
-        'articles' => $category->articles,
-        'currentCategory' => $category,
-        'categories' => Category::all()
-    ]);
-})->name('category');
-
-// Author's Page
-Route::get('/author/{author:username}', function (User $author) {
-    return view('page.articles', [
-        'articles' => $author->articles,
-        'categories' => Category::all()
-    ]);
-})->name('author');
-
-
+Route::get('/', [ArticleController::class, 'showHome'])->name('home');
 
 // Read single article
-Route::get('/article/{article:slug}', function (Article $article) {
-    return view('page.article', [
-        'article' => $article,
-        'categories' => Category::all()
-    ]);
-})->name('article');
+Route::get('/article/{article:slug}',[ArticleController::class, 'showArticle'])->name('article');
+
+
+
+// Search Results
+Route::get('/search', [ArticleController::class, 'showSearch'])->name('search');
+
+
+// Category
+Route::get('/category/{category:slug}',[ArticleController::class, 'showCategory'])->name('category');
+
+// Author's Page
+Route::get('/author/{author:username}',[ArticleController::class, 'showAuthor'])->name('author');

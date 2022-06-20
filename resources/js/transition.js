@@ -4,6 +4,7 @@ import Swup from 'swup';
 const options = {
     cache: false,
     animationSelector: '[class*="swupsition-"]',
+    containers:["#swup-main","#site-header"]
   };
 
 // Instantiate new swup object
@@ -26,3 +27,5 @@ function onLoad() {
         document.body.style.overflow = "initial";
     }
 }
+
+export {swup}; // Use in theme.js to run checkTheme()

@@ -2164,6 +2164,8 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./transition */ "./resources/js/transition.js");
+
 __webpack_require__(/*! ./theme */ "./resources/js/theme.js");
 
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
@@ -2226,33 +2228,42 @@ menuState.addEventListener('change', function () {
 /*!*******************************!*\
   !*** ./resources/js/theme.js ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _transition_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transition.js */ "./resources/js/transition.js");
 /*
    Light / Dark Mode
    Switcher logic for changing themes
 
 */
+
+_transition_js__WEBPACK_IMPORTED_MODULE_0__.swup.on('contentReplaced', checkTheme);
 var toggleSwitch = document.querySelectorAll('.theme-switch input[type="checkbox"]');
 var sunIcon = document.getElementsByClassName('sun-icon');
 var moonIcon = document.getElementsByClassName('moon-icon');
 
-if (localStorage.theme == "light") {
-  document.documentElement.classList.remove("dark");
-  document.documentElement.classList.add("light");
-  sunIcon[0].classList.add('hidden');
-  sunIcon[1].classList.add('hidden');
-  moonIcon[0].classList.remove('hidden');
-  moonIcon[1].classList.remove('hidden');
-} else {
-  toggleSwitch.checked = true;
-  document.documentElement.classList.add("dark");
-  document.documentElement.classList.remove("light");
-  moonIcon[0].classList.add('hidden');
-  moonIcon[1].classList.add('hidden');
-  sunIcon[0].classList.remove('hidden');
-  sunIcon[1].classList.remove('hidden');
+function checkTheme() {
+  if (localStorage.theme == "light") {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+    sunIcon[0].classList.add('hidden');
+    sunIcon[1].classList.add('hidden');
+    moonIcon[0].classList.remove('hidden');
+    moonIcon[1].classList.remove('hidden');
+  } else {
+    toggleSwitch.checked = true;
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+    moonIcon[0].classList.add('hidden');
+    moonIcon[1].classList.add('hidden');
+    sunIcon[0].classList.remove('hidden');
+    sunIcon[1].classList.remove('hidden');
+  }
 }
+
+checkTheme();
 
 function switchTheme(e, element) {
   if (e.target.checked) {
@@ -2287,12 +2298,16 @@ toggleSwitch[1].addEventListener('input', switchTheme, false);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "swup": () => (/* binding */ swup)
+/* harmony export */ });
 /* harmony import */ var swup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swup */ "./node_modules/swup/lib/index.js");
  // Swup Options
 
 var options = {
   cache: false,
-  animationSelector: '[class*="swupsition-"]'
+  animationSelector: '[class*="swupsition-"]',
+  containers: ["#swup-main", "#site-header"]
 }; // Instantiate new swup object
 
 var swup = new swup__WEBPACK_IMPORTED_MODULE_0__["default"](options); // Scroll to top of page when loaded
@@ -2310,6 +2325,8 @@ function onLoad() {
     document.body.style.overflow = "initial";
   }
 }
+
+ // Use in theme.js to run checkTheme()
 
 /***/ }),
 
@@ -21176,6 +21193,18 @@ var queryAll = exports.queryAll = function queryAll(selector) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -21274,7 +21303,6 @@ var queryAll = exports.queryAll = function queryAll(selector) {
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/js/transition.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/scss/custom.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
