@@ -2472,8 +2472,6 @@ if (localStorage.theme == "light") {
 }
 
 function switchTheme(e, element) {
-  console.log("swtichTheme");
-
   if (e.target.checked) {
     window.localStorage.setItem('theme', 'dark');
     document.documentElement.classList.add("dark");
@@ -2514,7 +2512,7 @@ __webpack_require__.r(__webpack_exports__);
 var options = {
   cache: false,
   animationSelector: '[class*="swupsition-"]',
-  containers: ["#swup-main", "#site-logo"],
+  containers: ["#swup-main", "#site-logo", "#swup-search-form"],
   plugins: [new _swup_forms_plugin__WEBPACK_IMPORTED_MODULE_1__["default"]({
     formSelector: 'form[data-swup-form]'
   })]

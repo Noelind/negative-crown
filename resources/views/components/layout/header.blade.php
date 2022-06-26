@@ -4,10 +4,11 @@
 
 	<div
 		class="flex flex-row items-center justify-between border-b px-8 py-8 duration-500 dark:border-neutral-600 md:ml-[86px] md:grid md:auto-cols-[1fr] md:grid-flow-col">
-		<form action="{{ route('search') }}" method="GET" class="hidden md:flex md:flex-row md:gap-4" data-swup-form>
+		<form id="swup-search-form" action="{{ route('search') }}" method="GET" class="hidden md:flex md:flex-row md:gap-4" data-swup-form>
 			<div class="relative">
 
-				<input type="text" name="search" id="search" class="peer w-full bg-transparent pl-12 text-2xl text-black outline-none dark:text-white"
+				<input type="text" name="search" id="search"
+					class="@if (Route::is('search')) swupsition-fade @endif peer w-full bg-transparent pl-12 text-2xl text-black outline-none dark:text-white"
 					@if (Route::is('search')) value="{{ request('search') }} @endif">
 				<label for="search"
 					class="absolute left-0 w-full text-transparent transition-all duration-300 before:absolute before:h-[20px] before:w-[20px] before:bg-[url('//localhost:3000/assets/icons/search-bk.svg')] before:opacity-50 before:transition-opacity before:duration-300 after:absolute after:left-0 after:-bottom-5 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 peer-focus:before:opacity-100 peer-focus:after:w-full dark:before:bg-[url('//localhost:3000/assets/icons/search-wh.svg')] dark:after:bg-white">Search</label>

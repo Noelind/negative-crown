@@ -21,7 +21,6 @@ if (localStorage.theme == "light") {
 }
 
 function switchTheme(e, element) {
-    console.log("swtichTheme");
     if (e.target.checked) {
         window.localStorage.setItem('theme', 'dark');
         document.documentElement.classList.add("dark");

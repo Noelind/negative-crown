@@ -5,7 +5,7 @@ import SwupFormsPlugin from '@swup/forms-plugin';
 const options = {
     cache: false,
     animationSelector: '[class*="swupsition-"]',
-    containers:["#swup-main","#site-logo"],
+    containers:["#swup-main","#site-logo","#swup-search-form"],
     plugins: [new SwupFormsPlugin({formSelector: 'form[data-swup-form]'})]
   };
 
