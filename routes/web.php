@@ -22,14 +22,14 @@ use App\Models\User;
 // Homepage
 Route::get('/', [ArticleController::class, 'showHome'])->name('home');
 
+// All Articles
+Route::get('/all-articles', [ArticleController::class, 'showAllArticles'])->name('all-articles');
+
 // Read single article
 Route::get('/article/{article:slug}',[ArticleController::class, 'showArticle'])->name('article');
 
-
-
 // Search Results
 Route::get('/search', [ArticleController::class, 'showSearch'])->name('search');
-
 
 // Category
 Route::get('/category/{category:slug}',[ArticleController::class, 'showCategory'])->name('category');

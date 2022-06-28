@@ -41,12 +41,7 @@
 		class="w-vscreen origin-top-center dark:bg-neutral-1000 fixed left-0 top-1/2 z-10 hidden -translate-x-1/2 -rotate-90 border-b border-solid bg-white pr-6 transition duration-500 ease-in-out dark:border-neutral-600 dark:text-white md:flex">
 		<div class="container py-7" id="vertical-header">
 			<nav class="flex items-center justify-end gap-16">
-				<ul class="flex flex-row-reverse gap-20 text-xl" id="vertical-menu">
-					@foreach ($categories as $category)
-						<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="$category->name" :slug="$category->slug" />
-					@endforeach
-				</ul>
-				<x-layout.icons :iconChoice="'theme'" />
+				<x-main-menu :menuChoice="'desktop-menu'" />
 			</nav>
 		</div>
 	</aside>

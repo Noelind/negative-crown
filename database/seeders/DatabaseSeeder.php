@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
         // Post::truncate();
         // Category::truncate();
 
-        Article::factory(4)->create();
+        Category::factory(5)->create();
+        User::factory(3)->create();
+        Article::factory(30)->create();
 
     }
 }

@@ -21,8 +21,8 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'category_id' => Category::factory(),
+            'user_id' => User::inRandomOrder()->first(),
+            'category_id' => Category::inRandomOrder()->first(),
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'excerpt' => $this->faker->paragraphs(4, true),
