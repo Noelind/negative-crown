@@ -2,11 +2,11 @@
 <html lang="en">
 
 
-<x-layout.head />
+<x-admin::layout.head />
 
 <body class="dark:bg-neutral-1000 transition-colors duration-500 ease-in-out">
 
-	<x-layout.header />
+	<x-admin::layout.header />
 	<main id="swup-main" class="swupsition-fade">
 		{{ $slot }}
 	</main>

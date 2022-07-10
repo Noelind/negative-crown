@@ -14,11 +14,11 @@
 		<a href="{{ route('article', ['article' => $article->slug]) }}">
 			<h2 class="mb-8 text-3xl font-medium leading-9 transition duration-500 ease-in-out dark:text-white">{{ $article->title }}</h2>
 		</a>
-		<x-article.author :author="$article->author" />
+		<x-front::article.author :author="$article->author" />
 		<div class="flex flex-row justify-between">
-			<x-article.date :date="$article->published_at" />
+			<x-front::article.date :date="$article->published_at" />
 			{{-- <span class="vertical-line sm:w-5"></span> --}}
-			<x-article.category :category="$article->category" />
+			<x-front::article.category :category="$article->category" />
 		</div>
 		<p class="text-2.5xl leading-40 obscure-text relative hidden font-light transition duration-500 ease-in-out dark:text-white">{{ $article->excerpt }}</p>
 	</div>

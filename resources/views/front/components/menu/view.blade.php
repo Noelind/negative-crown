@@ -1,12 +1,12 @@
 @props(['menuChoice'])
 @if ($menuChoice == 'desktop-menu')
 	<ul class="flex flex-row-reverse gap-20 text-xl" id="vertical-menu">
-		<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="'all articles'" :slug="'/all-articles'" />
+		<x-front::menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="'all articles'" :slug="'/all-articles'" />
 		@foreach ($categories as $category)
-			<x-menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="$category->name" :slug="$category->slug" :isCategory="true" />
+			<x-front::menu.link {{ $attributes->merge(['class' => 'text-lg']) }} :name="$category->name" :slug="$category->slug" :isCategory="true" />
 		@endforeach
 	</ul>
-	<x-layout.icons :iconChoice="'theme'" />
+	<x-front::layout.icons :iconChoice="'theme'" />
 @endif
 
 
@@ -23,11 +23,12 @@
 		</svg>
 
 		<ul class="flex flex-col items-center justify-center gap-10 dark:text-black">
-			<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="'all articles'" :slug="'/all-articles'" />
+			<x-front::menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="'all articles'" :slug="'/all-articles'" />
 			@foreach ($categories as $category)
-				<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="$category->name" :slug="$category->slug" :isCategory="true" />
+				<x-front::menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="$category->name" :slug="$category->slug"
+					:isCategory="true" />
 			@endforeach
-			<x-layout.icons :iconChoice="'theme'" :mobileMenu="'true'" />
+			<x-front::layout.icons :iconChoice="'theme'" :mobileMenu="'true'" />
 		</ul>
 	</nav>
 @endif

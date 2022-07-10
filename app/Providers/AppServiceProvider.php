@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Creating two 'components' workspaces, one for admin and one for front
+        Blade::anonymousComponentNamespace('admin.components', 'admin');
+        Blade::anonymousComponentNamespace('front.components', 'front');
     }
 }

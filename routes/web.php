@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
@@ -19,20 +20,27 @@ use App\Models\User;
 
 // with('category')->get() | N+1 Queries problem solution
 
-// Homepage
-Route::get('/', [ArticleController::class, 'showHome'])->name('home');
+Route::controller(ArticleController::class)->group(function () {
 
-// All Articles
-Route::get('/all-articles', [ArticleController::class, 'showAllArticles'])->name('all-articles');
+    // Homepage
+    Route::get('/', 'showHome')->name('home');
 
-// Read single article
-Route::get('/article/{article:slug}',[ArticleController::class, 'showArticle'])->name('article');
+    // All Articles
+    Route::get('/all-articles', 'showAllArticles')->name('all-articles');
 
-// Search Results
-Route::get('/search', [ArticleController::class, 'showSearch'])->name('search');
+    // Read single article
+    Route::get('/article/{article:slug}', 'showArticle')->name('article');
 
-// Category
-Route::get('/category/{category:slug}',[ArticleController::class, 'showCategory'])->name('category');
+    // Search Results
+    Route::get('/search','showSearch')->name('search');
 
-// Author's Page
-Route::get('/author/{author:username}',[ArticleController::class, 'showAuthor'])->name('author');
+    // Category
+    Route::get('/category/{category:slug}', 'showCategory')->name('category');
+
+    // Author's Page
+    Route::get('/author/{author:username}','showAuthor')->name('author');
+});
+
+
+Route::get('/tconadmin/register', [RegisterController::class,'create']);
+Route::post('/tconadmin/register', [RegisterController::class,'store']);

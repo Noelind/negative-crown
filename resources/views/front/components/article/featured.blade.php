@@ -19,12 +19,12 @@
 			<h2 class="leading-12 mb-5 mt-10 text-4xl font-bold lg:mt-0">{{ $article->title }}</h2>
 		</a>
 		{{-- <span class="mb-5 text-xl lg:text-xl font-normal md:tracking-widest-plus text-green-700">new read</span> --}}
-		<x-article.author {{ $attributes->merge(['class' => 'mb-5']) }} :author="$article->author" />
+		<x-front::article.author {{ $attributes->merge(['class' => 'mb-5']) }} :author="$article->author" />
 		<div class="flex flex-row justify-between lg:mb-12">
-			<x-article.date {{ $attributes->merge(['class' => 'text-lg']) }} :date="$article->published_at" />
+			<x-front::article.date {{ $attributes->merge(['class' => 'text-lg']) }} :date="$article->published_at" />
 			{{-- <span class="vertical-line block lg:hidden"></span> --}}
 			<div class="flex flex-row justify-between gap-10">
-				<x-article.category :category="$article->category" />
+				<x-front::article.category :category="$article->category" />
 			</div>
 		</div>
 		<p class="leading-11.5 obscure-text lg:line-clamp-10 relative hidden text-2xl font-light transition duration-500 ease-in-out dark:text-white">{{ $article->excerpt }}</p>

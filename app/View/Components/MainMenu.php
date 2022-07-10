@@ -8,6 +8,6 @@ use App\Models\Category;
 class MainMenu extends Component
 {
     public function render(){
-        return view('components.menu.view', ['categories' => Category::all()]);
+        return view('front.components.menu.view', ['categories' => Category::all()]);
     }
 }

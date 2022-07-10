@@ -1,8 +1,8 @@
-<x-layout>
+<x-front::layout>
 
-	<x-article.meta :article="$article" />
+	<x-front::article.meta :article="$article" />
 
-	<x-article.body :body="$article->body" />
+	<x-front::article.body :body="$article->body" />
 
 	{{-- <div class="container mx-auto">
 		<div class="xsm:grid-cols-2 grid grid-cols-1 gap-32 sm:grid-cols-3">
@@ -12,4 +12,4 @@
 		</div>
 	</div> --}}
 
-</x-layout>
+</x-front::layout>

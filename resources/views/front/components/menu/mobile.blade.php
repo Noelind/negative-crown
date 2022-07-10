@@ -14,9 +14,9 @@
 	<ul class="flex flex-col items-center justify-center gap-10 dark:text-black">
 		@foreach ($categories as $category)
 			{{-- {{ $category }} --}}
-			<x-menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="$category->name" :slug="$category->slug" />
+			<x-front::menu.link {{ $attributes->merge(['class' => 'text-3xl text-white pointer-events-auto mobile-menu-links']) }} :name="$category->name" :slug="$category->slug" />
 		@endforeach
-		<x-layout.icons :iconChoice="'theme'" :mobileMenu="'true'" />
+		<x-front::layout.icons :iconChoice="'theme'" :mobileMenu="'true'" />
 	</ul>
 
 </nav>

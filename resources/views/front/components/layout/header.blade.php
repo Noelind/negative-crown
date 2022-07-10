@@ -19,15 +19,15 @@
 			@if (Route::is('home'))
 				<h1>
 					<a href="{{ route('home') }}">
-						<x-layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
-						<x-layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
+						<x-front::layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
+						<x-front::layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
 						<span class="hidden">The Crown Of Negativity</span>
 					</a>
 				</h1>
 			@else
 				<a href="{{ route('home') }}">
-					<x-layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
-					<x-layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
+					<x-front::layout.icons :iconChoice="'logo-mb'" class="md:hidden" />
+					<x-front::layout.icons :iconChoice="'logo-ds'" class="hidden md:block" />
 				</a>
 			@endif
 		</div>
@@ -35,12 +35,14 @@
 
 
 
-		<x-layout.icons :iconChoice="'burger-menu'" :categories="$categories" />
+		<x-front::layout.icons :iconChoice="'burger-menu'" :categories="$categories" />
 	</div>
 	<aside
 		class="w-vscreen origin-top-center dark:bg-neutral-1000 fixed left-0 top-1/2 z-10 hidden -translate-x-1/2 -rotate-90 border-b border-solid bg-white pr-6 transition duration-500 ease-in-out dark:border-neutral-600 dark:text-white md:flex">
 		<div class="container py-7" id="vertical-header">
 			<nav class="flex items-center justify-end gap-16">
+
+				{{-- Comes from app/View/Components/MainMenu.php --}}
 				<x-main-menu :menuChoice="'desktop-menu'" />
 			</nav>
 		</div>
