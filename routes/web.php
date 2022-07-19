@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Article;
@@ -42,5 +43,20 @@ Route::controller(ArticleController::class)->group(function () {
 });
 
 
-Route::get('/tconadmin/register', [RegisterController::class,'create']);
-Route::post('/tconadmin/register', [RegisterController::class,'store']);
+//Admin Routes. May move to an admin.php in the future
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/tconadmin/login', 'showLogin')->name('login')->middleware('guest');
+    Route::post('/tconadmin/login', 'login')->name('login')->middleware('guest');
+
+    Route::get('/tconadmin', 'showPanel')->name('panel')->middleware('auth');
+
+    Route::post('/tconadmin/logout', 'destroy')->name('logout')->middleware('auth');
+});
+
+
+
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/tconadmin/create-new-user', 'create')->name('create-new-user')->middleware('auth');
+    Route::post('/tconadmin/create-new-user', 'store')->name('create-new-user')->middleware('auth');
+});
