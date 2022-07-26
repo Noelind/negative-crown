@@ -46,17 +46,17 @@ Route::controller(ArticleController::class)->group(function () {
 //Admin Routes. May move to an admin.php in the future
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/tconadmin/login', 'showLogin')->name('login')->middleware('guest');
-    Route::post('/tconadmin/login', 'login')->name('login')->middleware('guest');
+    Route::get('/tconadmin/login', 'showLogin')->name('admin-login')->middleware('guest');
+    Route::post('/tconadmin/login', 'login')->name('admin-login')->middleware('guest');
 
-    Route::get('/tconadmin', 'showPanel')->name('panel')->middleware('auth');
+    Route::get('/tconadmin', 'showPanel')->name('admin-panel')->middleware('auth');
 
-    Route::post('/tconadmin/logout', 'destroy')->name('logout')->middleware('auth');
+    Route::post('/tconadmin/logout', 'destroy')->name('admin-logout')->middleware('auth');
 });
 
 
 
 Route::controller(RegisterController::class)->group(function () {
-    Route::get('/tconadmin/create-new-user', 'create')->name('create-new-user')->middleware('auth');
-    Route::post('/tconadmin/create-new-user', 'store')->name('create-new-user')->middleware('auth');
+    Route::get('/tconadmin/create-new-user', 'create')->name('admin-create-new-user')->middleware('auth');
+    Route::post('/tconadmin/create-new-user', 'store')->name('admin-create-new-user')->middleware('auth');
 });

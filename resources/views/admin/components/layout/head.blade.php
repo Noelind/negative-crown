@@ -13,6 +13,6 @@
 	 if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
 	</script>
 
-	{{-- <script async src="{{ asset('js/app.js') }}"></script> --}}
+	<script async src="{{ asset('js/admin.js') }}"></script>
 	<title>Negative Crown</title>
 </head>
