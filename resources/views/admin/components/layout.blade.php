@@ -4,13 +4,13 @@
 
 <x-admin::layout.head />
 
-<body class="dark:bg-neutral-1000 transition-colors duration-500 ease-in-out">
+<body class="dark:bg-neutral-1000 flex transition-colors duration-500 ease-in-out">
 
-	@if (!Route::is('admin-login'))
-		<x-admin::layout.header />
+	@if (!Route::is('admin.login'))
+		<x-admin::layout.menu />
 	@endif
 
-	<main id="swup-main" class="swupsition-fade">
+	<main id="swup-main" class="swupsition-fade w-full">
 		{{ $slot }}
 	</main>
 

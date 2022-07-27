@@ -167,12 +167,3 @@ html.is-animating .swupsition-fade {
  + .menu-icon {@apply hidden}
  + .close-icon {@apply block;}
 }
-
-.error-animate {
-    animation: 1s ease-out 0s 1 opacity0to100;
-}
-
-@keyframes opacity0to100 {
-    0% {opacity: 0%;}
-    100% {opacity: 100%;}
-}

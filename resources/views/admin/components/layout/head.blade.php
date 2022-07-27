@@ -6,7 +6,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
 	{{-- Prevent flash of Default Light Theme --}}
 	<script>
@@ -14,5 +14,5 @@
 	</script>
 
 	<script async src="{{ asset('js/admin.js') }}"></script>
-	<title>Negative Crown</title>
+	<title>Negative Crown Admin</title>
 </head>

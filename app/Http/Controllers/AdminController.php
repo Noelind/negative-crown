@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -35,6 +37,17 @@ class AdminController extends Controller
 
     public function showPanel(){
         return view('admin.panel');
+    }
+
+    public function showArticles(){
+        return view('admin.panel', [
+            'articles' => Article::latest('published_at')->paginate(9)
+        ]);
+    }
+
+
+    public function showCategories(){
+        return view('admin.panel', ['categories' => Category::all()]);
     }
 
 

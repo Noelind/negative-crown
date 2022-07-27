@@ -11,15 +11,16 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.sass("resources/scss/custom.scss", "public/css");
+mix.sass("resources/scss/front/custom.scss", "public/css");
+mix.sass("resources/scss/admin/admin.scss", "public/css");
 
 // mix.js(
 //     ["resources/js/app.js", "resources/js/transition.js"],
 //     "public/js"
 // ).postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
 
-mix.js(["resources/js/app.js"],"public/js").postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
-mix.js(["resources/js/admin.js"],"public/js");
+mix.js(["resources/js/front/app.js"],"public/js").postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
+mix.js(["resources/js/admin/admin.js"],"public/js");
 
 mix.copyDirectory("resources/assets", "public/assets");
 

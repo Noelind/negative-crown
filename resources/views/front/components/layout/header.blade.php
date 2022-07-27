@@ -48,4 +48,4 @@
 		</div>
 	</aside>
 </header>
-<a href="{{ route('admin-login') }}" style="position: absolute;color:black;z-index:10;right:0;font-size:40px">tconadmin</a>
+<a href="{{ route('admin.login') }}" style="position: absolute;color:black;z-index:10;right:0;font-size:40px">tconadmin</a>

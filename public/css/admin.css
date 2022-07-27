@@ -1,0 +1,51 @@
+.error-animate {
+  -webkit-animation: 1s ease-out 0s 1 opacity0to100;
+          animation: 1s ease-out 0s 1 opacity0to100;
+}
+
+@-webkit-keyframes opacity0to100 {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes opacity0to100 {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.swupsition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .swupsition-fade {
+  opacity: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.underline-fx::before {
+  width: 0;
+  height: 5px;
+  background: #696969;
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 10px;
+  z-index: -1;
+  transition-property: width background-color;
+  transition-duration: 500ms;
+  transform: rotate(1deg);
+}
+.underline-fx:hover::before {
+  width: 100%;
+}

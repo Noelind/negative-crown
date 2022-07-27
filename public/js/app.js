@@ -2371,26 +2371,26 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/front/app.js":
+/*!***********************************!*\
+  !*** ./resources/js/front/app.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/front/bootstrap.js");
 
-__webpack_require__(/*! ./transition */ "./resources/js/transition.js");
+__webpack_require__(/*! ./transition */ "./resources/js/front/transition.js");
 
-__webpack_require__(/*! ./theme */ "./resources/js/theme.js");
+__webpack_require__(/*! ./theme */ "./resources/js/front/theme.js");
 
-__webpack_require__(/*! ./menu */ "./resources/js/menu.js");
+__webpack_require__(/*! ./menu */ "./resources/js/front/menu.js");
 
 /***/ }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
+/***/ "./resources/js/front/bootstrap.js":
+/*!*****************************************!*\
+  !*** ./resources/js/front/bootstrap.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
@@ -2418,10 +2418,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/menu.js":
-/*!******************************!*\
-  !*** ./resources/js/menu.js ***!
-  \******************************/
+/***/ "./resources/js/front/menu.js":
+/*!************************************!*\
+  !*** ./resources/js/front/menu.js ***!
+  \************************************/
 /***/ (() => {
 
 var menuState = document.getElementById("menu-checkbox");
@@ -2439,10 +2439,10 @@ menuState.addEventListener('change', function () {
 
 /***/ }),
 
-/***/ "./resources/js/theme.js":
-/*!*******************************!*\
-  !*** ./resources/js/theme.js ***!
-  \*******************************/
+/***/ "./resources/js/front/theme.js":
+/*!*************************************!*\
+  !*** ./resources/js/front/theme.js ***!
+  \*************************************/
 /***/ (() => {
 
 /*
@@ -2496,10 +2496,10 @@ toggleSwitch[1].addEventListener('input', switchTheme, false);
 
 /***/ }),
 
-/***/ "./resources/js/transition.js":
-/*!************************************!*\
-  !*** ./resources/js/transition.js ***!
-  \************************************/
+/***/ "./resources/js/front/transition.js":
+/*!******************************************!*\
+  !*** ./resources/js/front/transition.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19879,10 +19879,23 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/scss/custom.scss":
-/*!************************************!*\
-  !*** ./resources/scss/custom.scss ***!
-  \************************************/
+/***/ "./resources/scss/front/custom.scss":
+/*!******************************************!*\
+  !*** ./resources/scss/front/custom.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/admin/admin.scss":
+/*!*****************************************!*\
+  !*** ./resources/scss/admin/admin.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21592,6 +21605,7 @@ function delegate(base, selector, type, callback, options) {
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
+/******/ 			"css/admin": 0,
 /******/ 			"css/custom": 0
 /******/ 		};
 /******/ 		
@@ -21642,9 +21656,10 @@ function delegate(base, selector, type, callback, options) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/scss/custom.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/admin","css/custom"], () => (__webpack_require__("./resources/js/front/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/admin","css/custom"], () => (__webpack_require__("./resources/scss/front/custom.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/admin","css/custom"], () => (__webpack_require__("./resources/scss/admin/admin.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/admin","css/custom"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

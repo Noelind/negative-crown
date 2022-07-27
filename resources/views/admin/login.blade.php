@@ -1,7 +1,7 @@
 <x-admin::layout>
 
-	<div class="flex flex-col transition duration-500 ease-in-out dark:text-white lg:flex-row">
-		<div class="relative flex h-screen flex-col items-center justify-center bg-gray-50 px-8 lg:basis-1/2">
+	<div class="flex w-full flex-col transition duration-500 ease-in-out dark:text-white lg:flex-row">
+		<div class="relative flex h-screen flex-col items-center justify-center bg-gray-50 lg:basis-1/2">
 			<img class="mb-20 block lg:hidden" src="{{ asset('storage/images/tcon-login-mb.svg') }}" alt="tcon-login">
 			<h1 class="text-4xl font-bold lg:my-0 lg:text-7xl">Oh. It's you again.</h1>
 			<form method="POST" action="{{ url('/tconadmin/login') }}"
